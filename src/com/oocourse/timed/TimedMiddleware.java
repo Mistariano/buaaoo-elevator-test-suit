@@ -18,7 +18,6 @@ public class TimedMiddleware {
     private PipedInputStream inputStream;
 
     public TimedMiddleware(InputStream stream) {
-        System.out.println("Input test data plz...");
         List<TimedInputPair> pairs = getInputPairs(stream);
         PipedOutputStream outputStream = new PipedOutputStream();
         try {
