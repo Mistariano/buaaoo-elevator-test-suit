@@ -25,9 +25,9 @@ public class TimedMiddleware {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        TimedWritter writter = new TimedWritter(pairs, outputStream);
+        TimedWriter writer = new TimedWriter(pairs, outputStream);
         TimableOutput.initStartTimestamp();
-        new Thread(writter).start();
+        new Thread(writer).start();
     }
 
     private static List<TimedInputPair> getInputPairs(InputStream stream) {

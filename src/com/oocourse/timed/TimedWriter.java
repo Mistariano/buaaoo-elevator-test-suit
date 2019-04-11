@@ -4,13 +4,13 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 
-public class TimedWritter implements Runnable {
+public class TimedWriter implements Runnable {
     private final List<TimedInputPair> pairs;
     private final OutputStream stream;
 
     private double curTime;
 
-    TimedWritter(List<TimedInputPair> pairs, OutputStream stream) {
+    TimedWriter(List<TimedInputPair> pairs, OutputStream stream) {
         this.pairs = pairs;
         this.stream = stream;
         curTime = 0.;
@@ -35,12 +35,16 @@ public class TimedWritter implements Runnable {
                 stream.write(pair.getInputLine().getBytes());
                 stream.write('\n');
                 stream.flush();
-                curTime = time;
             } catch (IOException e) {
                 e.printStackTrace();
                 break;
             }
             curTime = time;
+        }
+        try {
+            stream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
