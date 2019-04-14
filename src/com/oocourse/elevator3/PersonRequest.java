@@ -33,7 +33,7 @@ public class PersonRequest {
     private final int toFloor;
     private final int personId;
 
-    private PersonRequest(int fromFloor, int toFloor, int personId) {
+    public PersonRequest(int fromFloor, int toFloor, int personId) {
         this.fromFloor = fromFloor;
         this.toFloor = toFloor;
         this.personId = personId;
